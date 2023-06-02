@@ -20,6 +20,11 @@ export default class Tile {
         this.#tileElement.style.setProperty ("--tile-lightness" , 
         `${backgroundLightness <= 50? 90:10}%`)
     }
+
+    get value () {
+      return this.#value 
+
+    }
     set x (value) {
         this.#x = value 
         this.#tileElement.style.setProperty ("--x" , value)

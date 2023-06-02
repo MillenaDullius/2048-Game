@@ -34,7 +34,16 @@ async function handleInput(e) {
             setupInput ()
             return
     }
-    grid.cells.forEach(cell => cell.mergeTiles()) 
+    grid.cells.forEach(cell => cell.mergeTiles()) // the tiles are being merged together 
+    if (!canMoveUp() && !canMoveDown() && !canMoveLeft() &&!canMoveRight()) {
+      newTile.waitForTransition(true).then(() => {
+        alert("You lose")
+      }) 
+      return 
+    }
+    grid.randomEmptyCell ().tile = new Tile(gameBoard) // after finishing movement I add a new tile on a randomly selected cell
+    setupInput()
+
         
     
         
